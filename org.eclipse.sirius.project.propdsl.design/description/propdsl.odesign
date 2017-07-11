@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="propdsl" version="12.0.0.2017041100">
+  <ownedViewpoints name="propdsl" modelFileExtension="propdsl">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Propositional Logic Diagram" domainClass="propdsl::Expression" enablePopupBars="true">
+      <metamodel href="../../org.eclipse.sirius.project.propdsl/model/propdsl.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="BinOp Node" semanticCandidatesExpression="feature:formula" domainClass="propdsl::BinOp">
+          <style xsi:type="style:SquareDescription" labelSize="9" labelExpression="feature:btype" labelPosition="node" resizeKind="NSEW" width="14" height="7">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.btype.toString() = 'AND' /]">
+            <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" labelExpression="feature:btype" hideLabelByDefault="true" sizeComputationExpression="5" resizeKind="NSEW" workspacePath="/org.eclipse.sirius.project.propdsl.design/icons/AND.svg">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.btype.toString() = 'OR' /]">
+            <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" labelExpression="feature:btype" hideLabelByDefault="true" sizeComputationExpression="5" resizeKind="NSEW" workspacePath="/org.eclipse.sirius.project.propdsl.design/icons/OR.svg">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.btype.toString() = 'IF' /]">
+            <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" labelExpression="feature:btype" hideLabelByDefault="true" sizeComputationExpression="5" resizeKind="NSEW" workspacePath="/org.eclipse.sirius.project.propdsl.design/icons/IF.svg">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.btype.toString() = 'IFF' /]">
+            <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" labelExpression="feature:btype" hideLabelByDefault="true" sizeComputationExpression="5" resizeKind="NSEW" workspacePath="/org.eclipse.sirius.project.propdsl.design/icons/IFF.svg">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="UnOp Node" semanticCandidatesExpression="feature:formula" domainClass="propdsl::UnOp">
+          <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" labelExpression="feature:utype" hideLabelByDefault="true" sizeComputationExpression="6" resizeKind="NSEW" workspacePath="/org.eclipse.sirius.project.propdsl.design/icons/NOT.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Proposition Node" labelDirectEdit="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Change%20Prop%20Name']" semanticCandidatesExpression="feature:formula" domainClass="propdsl::Proposition">
+          <style xsi:type="style:DotDescription" labelAlignment="RIGHT" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="BinOp Edge" deletionDescription="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Unset%20Binary%20Op']" sourceMapping="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@nodeMappings[name='BinOp%20Node']" targetMapping="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@nodeMappings[name='Proposition%20Node'] //@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@nodeMappings[name='UnOp%20Node'] //@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@nodeMappings[name='BinOp%20Node']" targetFinderExpression="feature:bformula">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="UnOp Edge" deletionDescription="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Unset%20Unary%20Op']" sourceMapping="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@nodeMappings[name='UnOp%20Node']" targetMapping="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@nodeMappings[name='BinOp%20Node'] //@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@nodeMappings[name='Proposition%20Node']" targetFinderExpression="feature:uformula">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Add Binary Operator" nodeMappings="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@nodeMappings[name='BinOp%20Node']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="propdsl::BinOp" referenceName="formula">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="btype" valueExpression="'AND'"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Add Unary Operator" nodeMappings="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@nodeMappings[name='UnOp%20Node']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="propdsl::UnOp" referenceName="formula" variableName="instance2">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="utype" valueExpression="'NOT'"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Add Proposition" nodeMappings="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@nodeMappings[name='Proposition%20Node']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="propdsl::Proposition" referenceName="formula" variableName="instance3">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Proposition' + container.formula->filter(propdsl::Proposition)->size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Binary Operation Relation" precondition="aql:preTarget.differs(preSource)" edgeMappings="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@edgeMappings[name='BinOp%20Edge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="bformula" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Unary Operation Relation" precondition="aql:preTarget.differs(preSource)" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='propdsl']/@ownedRepresentations[name='Propositional%20Logic%20Diagram']/@defaultLayer/@edgeMappings[name='UnOp%20Edge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="uformula" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Unset Binary Op">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="bformula"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Unset Unary Op">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="uformula"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Change Prop Name">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.project.propdsl.design.Services"/>
+  </ownedViewpoints>
+</description:Group>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated propdsl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.sirius.project.propdsl.presentation.PropdslModelWizardID"
+            name="%_UI_PropdslModelWizard_label"
+            class="org.eclipse.sirius.project.propdsl.presentation.PropdslModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PropdslModelFile.gif">
+         <description>%_UI_PropdslModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated propdsl -->
+      <editor
+            id="org.eclipse.sirius.project.propdsl.presentation.PropdslEditorID"
+            name="%_UI_PropdslEditor_label"
+            icon="icons/full/obj16/PropdslModelFile.gif"
+            extensions="propdsl"
+            class="org.eclipse.sirius.project.propdsl.presentation.PropdslEditor"
+            contributorClass="org.eclipse.sirius.project.propdsl.presentation.PropdslActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

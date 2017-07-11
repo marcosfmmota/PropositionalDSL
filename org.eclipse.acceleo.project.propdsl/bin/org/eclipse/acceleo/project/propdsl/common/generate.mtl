@@ -1,0 +1,49 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.eclipse.org/sirius/project/propdsl')]
+
+
+[template public generateElement(anExpression : Expression)]
+[comment @main /]
+[file (anExpression.id.concat('.java'), false)]
+import org.chocosolver.solver.*;
+public class [anExpression.id/] {	
+	public static void main(String['['/][']'/] args){	
+		Model [anExpression.id/]Model = new Model("[anExpression.id/]");
+		
+	[for (p : Proposition | anExpression.eAllContents(Proposition))]
+		BoolVar [p.name/] = [anExpression.id/]Model.boolVar("[p.name/]");
+	[/for]
+	
+	[for (f : Formula | anExpression.eAllContents(Formula))]
+	[if (f.root = true)]
+		[anExpression.id/]Model.addClauses(
+			[printClause(f)/]
+		,[anExpression.id/]Model); 
+	[/if]
+	[/for]
+	[anExpression.id/]Model.getSolver().solve();
+		for (BoolVar b : [anExpression.id/]Model.retrieveBoolVars()) {
+			System.out.println(b);
+		}
+	}
+}		
+[/file]
+[/template]
+
+[template public printClause( formula : Formula)]
+[if formula.eClass() = BinOp]
+	[if formula.oclAsType(BinOp).btype.toString() = 'AND'] 
+	LogOp.and([printClause(formula.oclAsType(BinOp).bformula->first())/],[printClause(formula.oclAsType(BinOp).bformula->last())/])	
+	[elseif formula.oclAsType(BinOp).btype.toString() = 'OR']
+	LogOp.or([printClause(formula.oclAsType(BinOp).bformula->first())/],[printClause(formula.oclAsType(BinOp).bformula->last())/])
+	[elseif formula.oclAsType(BinOp).btype.toString() = 'IF']
+	LogOp.implies([printClause(formula.oclAsType(BinOp).bformula->first())/],[printClause(formula.oclAsType(BinOp).bformula->last())/])
+	[else]
+	LogOp.ifOnlyIf([printClause(formula.oclAsType(BinOp).bformula->first())/],[printClause(formula.oclAsType(BinOp).bformula->last())/])
+	[/if]
+[elseif formula.eClass() = UnOp ]
+	LogOp.nand([printClause(formula.oclAsType(UnOp).uformula)/],[printClause(formula.oclAsType(UnOp).uformula)/])
+[else]
+	[formula.oclAsType(Proposition).name/]
+[/if]
+[/template]
